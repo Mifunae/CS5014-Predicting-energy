@@ -15,7 +15,8 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
-
+from numpy import loadtxt
+#np.loadtxt('energydata_complete.csv')
 energy = pd.read_csv('energydata_complete.csv')
 
 def calculateNsm(date):
