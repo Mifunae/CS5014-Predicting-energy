@@ -23,6 +23,7 @@ def calculateNsm(date):
     tomorrow = date+timedelta(1)
     midnight = datetime(year = tomorrow.year, month = tomorrow.month, 
                         day=tomorrow.day, hour=0, minute=0, second=0)
+    quit()
     return (midnight - date).seconds
 
 nsmList = []
@@ -35,8 +36,8 @@ for index,row in energy.iterrows():
 energy["nsm"] = nsmList
 energy.drop(["rv1","rv2","date"],axis =1, inplace = True)
 
-energy.hist(bins = 50,figsize = (20,15))
-#plt.show()
+energy.hist(bins = 50,figsize = (20,25))
+plt.show()
 #energy.info()
 print energy.describe()
 
