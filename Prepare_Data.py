@@ -32,11 +32,11 @@ for index, row in energy.iterrows():
     nsmList.append(calculateNsm(dateObj))
 
 energy["nsm"] = nsmList
-energy.drop(["rv1", "rv2", "date","Visibility","RH_5"], axis=1, inplace=True)
+energy.drop(["rv1", "rv2", "date"], axis=1, inplace=True)
 
 energy.hist(bins=50, figsize=(20, 15))
 # plt.show()
-# energy.info()
+# energy.info()"date"
 print energy.corr()['Appliances'].sort_values(ascending = False)
 print energy.describe()
 
