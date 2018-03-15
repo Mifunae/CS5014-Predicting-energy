@@ -15,7 +15,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.externals import joblib
 import argparse
 
-parser = argparse.ArgumentParser(description='Training.')
+parser = argparse.ArgumentParser(description='Training & testing Model.')
 
 parser.add_argument('-ln', action='store_true',
                     help='Use the use linear regression model')

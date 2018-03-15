@@ -7,13 +7,18 @@ Created on 13 Mar 2018
 from datetime import datetime, timedelta
 import numpy as np
 from DataFrameSelector import *
-import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
+import argparse
 
+parser = argparse.ArgumentParser(description='Preparing data.')
+parser.add_argument('-plot', action='store_true',
+                    help='Plot the graph as well')
+
+args = parser.parse_args()
 energy = pd.read_csv('energydata_complete.csv')
 
 
@@ -32,10 +37,11 @@ for index, row in energy.iterrows():
     nsmList.append(calculateNsm(dateObj))
 
 energy["nsm"] = nsmList
-energy.drop(["rv1", "rv2", "date"], axis=1, inplace=True)
+energy.drop(["rv1", "rv2", "date","Visibility","RH_5"], axis=1, inplace=True)
 
 energy.hist(bins=50, figsize=(20, 15))
-# plt.show()
+if args.plot is True:
+    plt.show()
 # energy.info()"date"
 print energy.corr()['Appliances'].sort_values(ascending = False)
 print energy.describe()
@@ -51,6 +57,6 @@ yTest = testSet["Appliances"].copy()
 np.savetxt("xTrain.txt", xTrain)
 np.savetxt("yTrain.txt", yTrain)
 
-# Save Testing data set
+# Save testing data set
 np.savetxt("xTest.txt", xTest)
 np.savetxt("yTest.txt", yTest)
