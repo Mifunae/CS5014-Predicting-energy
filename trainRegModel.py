@@ -21,13 +21,13 @@ parser.add_argument('-ln', action='store_true',
                     help='Use the use linear regression model')
 
 parser.add_argument('-rid', action='store_true',
-                    help='Use the use linear regression model')
+                    help='Use the use Ridge regression model')
 
 parser.add_argument('-poly', action='store_true',
-                    help='Use the use linear regression model')
+                    help='Use the use Polynomial regression model')
 
 parser.add_argument('-sgd', action='store_true',
-                    help='Use the use linear regression model')
+                    help='Use the use Stochastic Gradient Descent regression model')
 
 args = parser.parse_args()
 
